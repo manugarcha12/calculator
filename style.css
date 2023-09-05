@@ -1,4 +1,5 @@
 h1 {
+  display: flex;
   justify-content: center;
 }
 .container {
@@ -9,7 +10,7 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: start;
-
+  padding: 10px;
   height: 500px;
   width: 300px;
   border: 2px solid black;
@@ -37,5 +38,7 @@ h1 {
 }
 
 button {
-  padding: 25px;
+  width: 80px;
+  height: 80px;
+  font-size: 1.5em;
 }
