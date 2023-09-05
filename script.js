@@ -26,7 +26,10 @@ function divide(num1, num2) {
   return answer;
 }
 function updateDisplay(event) {
-  if (event.target.innerText === "+") {
+  if (event.target.innertext === "Clear") {
+    number = 0;
+    screen.innerText = number;
+  } else if (event.target.innerText === "+") {
     a = Number(screen.innerText);
     operator = "+";
     number = 0;
@@ -74,13 +77,8 @@ function updateDisplay(event) {
       a = result.innerText;
     }
   } else {
-    if (screen.innerText === "0+" || screen.innerText === "0-") {
-      number = 0;
-      screen.innerText = number;
-    }
     number += event.target.innerText.toString();
     screen.innerText = number;
-    result.innerText = 0;
   }
 }
 
