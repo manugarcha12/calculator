@@ -6,6 +6,9 @@ let number = "";
 let a;
 let b;
 let operator;
+let resultDisplay = false;
+screen.innerText = 0;
+result.innerText = 0;
 
 function add(num1, num2) {
   let answer = num1 + num2;
@@ -36,63 +39,97 @@ function updateDisplay(event) {
     number = "";
     screen.innerText = number;
   } else if (event.target.innerText === "+") {
-    a = Number(screen.innerText);
-    operator = "+";
-    number = "";
-    screen.innerText = number;
+    if (resultDisplay === true) {
+      a = Number(result.innerText);
+      operator = "+";
+      number = "";
+      screen.innerText = number;
+    } else {
+      a = Number(screen.innerText);
+      operator = "+";
+      number = "";
+      screen.innerText = number;
+    }
   } else if (event.target.innerText === "-") {
-    a = Number(screen.innerText);
-    operator = "-";
-    number = "";
-    screen.innerText = number;
+    if (resultDisplay === true) {
+      a = Number(result.innerText);
+      operator = "-";
+      number = "";
+      screen.innerText = number;
+    } else {
+      a = Number(screen.innerText);
+      operator = "-";
+      number = "";
+      screen.innerText = number;
+    }
   } else if (event.target.innerText === "x") {
-    a = Number(screen.innerText);
-    operator = "x";
-    number = "";
-    screen.innerText = number;
+    if (resultDisplay === true) {
+      a = Number(result.innerText);
+      operator = "x";
+      number = "";
+      screen.innerText = number;
+    } else {
+      a = Number(screen.innerText);
+      operator = "x";
+      number = "";
+      screen.innerText = number;
+    }
   } else if (event.target.innerText === "/") {
-    a = Number(screen.innerText);
-    operator = "/";
-    number = "";
-    screen.innerText = number;
+    if (resultDisplay === true) {
+      a = Number(result.innerText);
+      operator = "/";
+      number = "";
+      screen.innerText = number;
+    } else {
+      a = Number(screen.innerText);
+      operator = "/";
+      number = "";
+      screen.innerText = number;
+    }
   } else if (event.target.innerText === "=") {
     if (operator === "+") {
       b = Number(screen.innerText);
       number = "";
-      screen.innerText = number;
+      screen.innerText = `${a} + ${b}`;
+      resultDisplay = true;
       result.innerText = add(a, b);
-      a = result.innerText;
+      a = Number(result.innerText);
       console.log(result.innerText);
     } else if (operator === "-") {
       b = Number(screen.innerText);
       number = "";
-      screen.innerText = number;
+      screen.innerText = `${a} - ${b}`;
+      resultDisplay = true;
       result.innerText = subtract(a, b);
-      a = result.innerText;
+      a = Number(result.innerText);
     } else if (operator === "x") {
       b = Number(screen.innerText);
       number = "";
-      screen.innerText = number;
+      screen.innerText = `${a} x ${b}`;
+      resultDisplay = true;
       result.innerText = multiply(a, b);
-      a = result.innerText;
+      a = Number(result.innerText);
     } else if (operator === "/") {
       b = Number(screen.innerText);
       number = "";
-      screen.innerText = number;
+      screen.innerText = `${a} / ${b}`;
+      resultDisplay = true;
       result.innerText = divide(a, b);
-      a = result.innerText;
+      a = Number(result.innerText);
     }
   } else {
+    resultDisplay = false;
     number += event.target.innerText.toString();
     screen.innerText = number;
-    result.innerText = "";
+    result.innerText = 0;
   }
 }
 
 function clear() {
+  resultDisplay = false;
   number = "";
-  screen.innerText = number;
-  result.innerText = "";
+  screen.innerText = 0;
+  result.innerText = 0;
 }
 
 btn.forEach((button) => {

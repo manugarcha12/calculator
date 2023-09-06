@@ -10,11 +10,12 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  padding: 10px;
+  padding: 20px;
   height: 500px;
   width: 300px;
   border: 2px solid black;
   background-color: grey;
+  border-radius: 25px;
 }
 
 .screen {
@@ -22,6 +23,7 @@ h1 {
   margin-bottom: 10px;
   background-color: rgb(135, 210, 135);
   font-family: "Orbitron", sans-serif;
+  border-radius: 5px;
 }
 #display {
   height: 25px;
@@ -49,6 +51,7 @@ button {
   height: 50px;
   font-size: 1.5em;
   background-color: lightgray;
+  border-radius: 5px;
 }
 
 button:hover {
