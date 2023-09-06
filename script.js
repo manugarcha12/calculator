@@ -1,7 +1,7 @@
 let screen = document.getElementById("display");
 let result = document.getElementById("result");
 let btn = document.querySelectorAll("#num");
-let number = 0;
+let number = "";
 let a;
 let b;
 let operator;
@@ -22,56 +22,61 @@ function multiply(num1, num2) {
 }
 function divide(num1, num2) {
   let answer = num1 / num2;
-
-  return answer;
+  if (answer === Infinity) {
+    answer = "BOOBIES";
+    return answer;
+  } else {
+    return answer;
+  }
 }
+
 function updateDisplay(event) {
-  if (event.target.innertext === "Clear") {
-    number = 0;
+  if (event.target.innertext === "clear") {
+    number = "";
     screen.innerText = number;
   } else if (event.target.innerText === "+") {
     a = Number(screen.innerText);
     operator = "+";
-    number = 0;
+    number = "";
     screen.innerText = number;
   } else if (event.target.innerText === "-") {
     a = Number(screen.innerText);
     operator = "-";
-    number = 0;
+    number = "";
     screen.innerText = number;
   } else if (event.target.innerText === "x") {
     a = Number(screen.innerText);
     operator = "x";
-    number = 0;
+    number = "";
     screen.innerText = number;
   } else if (event.target.innerText === "/") {
     a = Number(screen.innerText);
     operator = "/";
-    number = 0;
+    number = "";
     screen.innerText = number;
   } else if (event.target.innerText === "=") {
     if (operator === "+") {
       b = Number(screen.innerText);
-      number = 0;
+      number = "";
       screen.innerText = number;
       result.innerText = add(a, b);
       a = result.innerText;
       console.log(result.innerText);
     } else if (operator === "-") {
       b = Number(screen.innerText);
-      number = 0;
+      number = "";
       screen.innerText = number;
       result.innerText = subtract(a, b);
       a = result.innerText;
     } else if (operator === "x") {
       b = Number(screen.innerText);
-      number = 0;
+      number = "";
       screen.innerText = number;
       result.innerText = multiply(a, b);
       a = result.innerText;
     } else if (operator === "/") {
       b = Number(screen.innerText);
-      number = 0;
+      number = "";
       screen.innerText = number;
       result.innerText = divide(a, b);
       a = result.innerText;
@@ -79,6 +84,7 @@ function updateDisplay(event) {
   } else {
     number += event.target.innerText.toString();
     screen.innerText = number;
+    result.innerText = "";
   }
 }
 
