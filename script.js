@@ -1,6 +1,7 @@
 let screen = document.getElementById("display");
 let result = document.getElementById("result");
 let btn = document.querySelectorAll("#num");
+let clearBtn = document.getElementById("clear");
 let number = "";
 let a;
 let b;
@@ -23,7 +24,7 @@ function multiply(num1, num2) {
 function divide(num1, num2) {
   let answer = num1 / num2;
   if (answer === Infinity) {
-    answer = "BOOBIES";
+    answer = "8008135";
     return answer;
   } else {
     return answer;
@@ -88,6 +89,14 @@ function updateDisplay(event) {
   }
 }
 
+function clear() {
+  number = "";
+  screen.innerText = number;
+  result.innerText = "";
+}
+
 btn.forEach((button) => {
   button.addEventListener("click", updateDisplay);
 });
+
+clearBtn.addEventListener("click", clear);
